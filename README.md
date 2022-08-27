@@ -160,7 +160,17 @@ Aug 27 08:49:44.416: 10.0.2.79:39309 (ingress) -> app-routable-demo/nginx-zone1-
 Aug 27 08:49:44.417: 10.0.2.79:39309 (ingress) -> app-routable-demo/nginx-zone1-5558d47d6b-lpxdf:80 (ID:23472) to-endpoint FORWARDED (TCP Flags: ACK, PSH)
 ```
 ## DNS visibility
-
-## L7 visibility
-
-
+```
+kubectl annotate pod -n app-routable-demo --selector="app=echoserver-1"  io.cilium.proxy-visibility="<Egress/53/UDP/DNS>,<Ingress/80/TCP/HTTP>"
+```
+```
+hubble observe -n app-routable-demo --to-label app=echoserver-1 -f
+```
+```
+...
+hubble observe -n app-routable-demo --to-label app=echoserver-1 -f
+```
+```
+Aug 27 09:25:22.106: app-routable-demo/nginx-zone4-6fbcfbb945-9zm8h:41492 (ID:29624) -> app-routable-demo/echoserver-1-deployment-7646b64488-fdlmx:80 (ID:17526) to-proxy FORWARDED (TCP Flags: ACK, PSH)
+Aug 27 09:25:22.106: app-routable-demo/nginx-zone2-6f46f7849f-d2dn7 (ID:29624) -> app-routable-demo/echoserver-1-deployment-7646b64488-fdlmx:80 (ID:17526) http-request FORWARDED (HTTP/1.1 GET http://zone6/app1)
+```
