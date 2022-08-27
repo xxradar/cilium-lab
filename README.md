@@ -16,5 +16,13 @@ watch kubectl get po -n app-routable-demo
 ```
 hubble observe -n app-routable-dempo
 ```
+```
+Aug 27 07:00:07.474: app-routable-demo/nginx-zone5-b4df4559d-6rr97:41366 (ID:34491) -> app-routable-demo/echoserver-2-deployment-56f8846f4-vsm5l:80 (ID:3633) to-overlay FORWARDED (TCP Flags: ACK, FIN)
+Aug 27 07:00:07.474: app-routable-demo/nginx-zone5-b4df4559d-6rr97:41366 (ID:34491) <- app-routable-demo/echoserver-2-deployment-56f8846f4-vsm5l:80 (ID:3633) to-overlay FORWARDED (TCP Flags: ACK, FIN)
+Aug 27 07:00:07.474: app-routable-demo/nginx-zone2-6f46f7849f-d2dn7:36962 (ID:16965) <- app-routable-demo/nginx-zone5-b4df4559d-6rr97:80 (ID:34491) to-overlay FORWARDED (TCP Flags: ACK, PSH)
+Aug 27 07:00:07.474: app-routable-demo/nginx-zone5-b4df4559d-6rr97:41366 (ID:34491) <- app-routable-demo/echoserver-2-deployment-56f8846f4-vsm5l:80 (ID:3633) to-endpoint FORWARDED (TCP Flags: ACK, FIN)
+Aug 27 07:00:07.474: app-routable-demo/nginx-zone5-b4df4559d-6rr97:41366 (ID:34491) -> app-routable-demo/echoserver-2-deployment-56f8846f4-vsm5l:80 (ID:3633) to-overlay FORWARDED (TCP Flags: ACK)
+Aug 27 07:00:07.474: app-routable-demo/nginx-zone5-b4df4559d-6rr97:41366 (ID:34491) -> app-routable-demo/echoserver-2-deployment-56f8846f4-vsm5l:80 (ID:3633) to-endpoint FORWARDED (TCP Flags: ACK, FIN)
+```
 
 ## Applying K8S native network policies
