@@ -62,6 +62,7 @@ Aug 27 07:11:05.940: hacking/debug:37254 (ID:59652) <> app-routable-demo/nginx-z
 ## Create an cilium ingress resource
 ```
 kubectl apply -f - <<EOF
+apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: app1-ingress
