@@ -1,4 +1,3 @@
-```
 #!/bin/bash
 CILIUM_CLI_VERSION=$(curl -s https://raw.githubusercontent.com/cilium/cilium-cli/master/stable.txt)
 CLI_ARCH=amd64
@@ -36,4 +35,3 @@ sleep 5
 cilium hubble port-forward&
 hubble status
 kubectl port-forward -n kube-system svc/hubble-ui --address 0.0.0.0 --address :: 12000:80 > /dev/null &
-```
