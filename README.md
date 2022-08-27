@@ -163,11 +163,9 @@ Aug 27 08:49:44.417: 10.0.2.79:39309 (ingress) -> app-routable-demo/nginx-zone1-
 ```
 kubectl annotate pod -n app-routable-demo --selector="app=echoserver-1"  io.cilium.proxy-visibility="<Egress/53/UDP/DNS>,<Ingress/80/TCP/HTTP>"
 ```
+
+## L7 visibility
 ```
-hubble observe -n app-routable-demo --to-label app=echoserver-1 -f
-```
-```
-...
 hubble observe -n app-routable-demo --to-label app=echoserver-1 -f
 ```
 ```
