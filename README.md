@@ -3,7 +3,7 @@
 ## Lab setup
 Kubeadm K8S cluster v1.25<br> 
 #### Cilium v1.12.1
-
+See [script](./cilium_install.sh)
 #### Install demo app-routable-demo
 See [app-routable-demo](https://github.com/xxradar/app_routable_demo) for more info<br> 
 ```
