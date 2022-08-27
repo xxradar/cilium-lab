@@ -2,7 +2,14 @@
 
 ## Lab setup
 Kubeadm K8S cluster v1.25<br> 
-Cilium v1.12<br>
+#### Cilium v1.12.1
+```
+cilium install \
+--helm-set ingressController.enabled=true \
+--helm-set securityContext.privileged=true \
+--kube-proxy-replacement=strict \
+--version 1.12.1
+```
 #### app-routable-demo
 See [app-routable-demo](https://github.com/xxradar/app_routable_demo) for more info<br> 
 ```
