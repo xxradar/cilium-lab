@@ -181,12 +181,12 @@ Aug 27 09:35:04.228: app-routable-demo/siege-deployment-5fc7c7d969-prwsp:51528 (
 
 ## L7 visibility
 ```
-kubectl annotate pod -n app-routable-demo --selector="app=echoserver-1"  io.cilium.proxy-visibility="<Ingress/80/TCP/HTTP>"
+kubectl annotate pod -n app-routable-demo --selector="app=echoserver-2"  io.cilium.proxy-visibility="<Ingress/80/TCP/HTTP>"
 ```
 ```
-hubble observe -n app-routable-demo --to-label app=echoserver-1 -f
+hubble observe -n app-routable-demo --to-label app=echoserver-2 -f
 ```
 ```
-Aug 27 09:25:22.106: app-routable-demo/nginx-zone4-6fbcfbb945-9zm8h:41492 (ID:29624) -> app-routable-demo/echoserver-1-deployment-7646b64488-fdlmx:80 (ID:17526) to-proxy FORWARDED (TCP Flags: ACK, PSH)
-Aug 27 09:25:22.106: app-routable-demo/nginx-zone2-6f46f7849f-d2dn7 (ID:29624) -> app-routable-demo/echoserver-1-deployment-7646b64488-fdlmx:80 (ID:17526) http-request FORWARDED (HTTP/1.1 GET http://zone6/app1)
+Aug 27 15:37:09.098: app-routable-demo/nginx-zone2-6f46f7849f-d2dn7 (ID:34491) -> app-routable-demo/echoserver-2-deployment-56f8846f4-ngqqc:80 (ID:3633) http-request FORWARDED (HTTP/1.1 GET http://zone7/app2)
+Aug 27 15:37:09.099: app-routable-demo/nginx-zone2-6f46f7849f-d2dn7 (ID:34491) <- app-routable-demo/echoserver-2-deployment-56f8846f4-ngqqc:80 (ID:3633) http-response FORWARDED (HTTP/1.1 200 0ms (GET http://zone7/app2))
 ```
