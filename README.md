@@ -95,9 +95,19 @@ EOF
 ```
 kubectl get ingress -n app-routable-demo
 ```
+cilium ingress will create a SVC of type LoadBalancer for each ingress
+```
+kubectl get svc -n app-routable-demo
+```
+Note the NodePort for some local testing.
 ```
 hubble observe  --from-identity ingress  -f
 ```
+In other terminal2:
+```
+curl 127.0.0.1:32665/app1
+```
+Observe the output
 ```
 Aug 27 08:40:09.757: 10.0.2.79:35475 (ingress) <> app-routable-demo/nginx-zone1-5558d47d6b-lpxdf:80 (ID:23472) to-overlay FORWARDED (TCP Flags: SYN)
 Aug 27 08:40:09.758: 10.0.2.79:35475 (ingress) -> app-routable-demo/nginx-zone1-5558d47d6b-lpxdf:80 (ID:23472) to-endpoint FORWARDED (TCP Flags: SYN)
