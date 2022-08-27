@@ -149,6 +149,6 @@ spec:
   ingress:
     - fromEntities:
       - ingress
- EOF
+EOF
 ```
 
