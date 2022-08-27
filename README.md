@@ -67,7 +67,6 @@ Aug 27 07:11:05.940: hacking/debug:37254 (ID:59652) <> app-routable-demo/nginx-z
 ```
 
 ## Create an cilium ingress resource
-<details>
 First delete the network policies in place
 ```
 kubectl delete netpol -f app_routable_demo/network_policies/
@@ -160,5 +159,4 @@ Aug 27 08:49:44.416: 10.0.2.79:39309 (ingress) <> app-routable-demo/nginx-zone1-
 Aug 27 08:49:44.416: 10.0.2.79:39309 (ingress) -> app-routable-demo/nginx-zone1-5558d47d6b-lpxdf:80 (ID:23472) to-endpoint FORWARDED (TCP Flags: ACK)
 Aug 27 08:49:44.417: 10.0.2.79:39309 (ingress) -> app-routable-demo/nginx-zone1-5558d47d6b-lpxdf:80 (ID:23472) to-endpoint FORWARDED (TCP Flags: ACK, PSH)
 ```
-</details>
 ## Next topic
