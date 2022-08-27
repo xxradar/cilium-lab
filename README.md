@@ -14,7 +14,7 @@ watch kubectl get po -n app-routable-demo
 
 ## Observing network flows
 ```
-hubble observe -n app-routable-demo
+hubble observe -n app-routable-demo -f 
 ```
 ```
 Aug 27 07:00:07.474: app-routable-demo/nginx-zone5-b4df4559d-6rr97:41366 (ID:34491) -> app-routable-demo/echoserver-2-deployment-56f8846f4-vsm5l:80 (ID:3633) to-overlay FORWARDED (TCP Flags: ACK, FIN)
