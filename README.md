@@ -29,7 +29,7 @@ Aug 27 07:00:07.474: app-routable-demo/nginx-zone5-b4df4559d-6rr97:41366 (ID:344
 kubectl create ns hacking
 ```
 ```
-kubectl run -it --rm -l debug=hacking-mode --image xxradar/hackon debug
+kubectl run -it --rm -l debug=hacking-mode-n hacking --image xxradar/hackon debug
 ```
 
 ## Applying K8S native network policies
