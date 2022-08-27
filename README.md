@@ -117,3 +117,24 @@ Aug 27 08:40:09.758: 10.0.2.79:35475 (ingress) <> app-routable-demo/nginx-zone1-
 Aug 27 08:40:09.758: 10.0.2.79:35475 (ingress) -> app-routable-demo/nginx-zone1-5558d47d6b-lpxdf:80 (ID:23472) to-endpoint FORWARDED (TCP Flags: ACK, PSH)
 Aug 27 08:40:09.772: 10.0.2.79:35475 (ingress) <> app-routable-demo/nginx-zone1-5558d47d6b-lpxdf:80 (ID:23472) to-overlay FORWARDED (TCP Flags: ACK)
 ```
+## Fixing the network policies
+```
+kubectl apply -n app-routable-demo -f ./app_routable_demo/network_policies 
+```
+```
+hubble observe  --from-identity ingress  -f
+```
+In other terminal2:
+```
+curl 127.0.0.1:32665/app1
+```
+Observe the output
+```
+Aug 27 08:40:09.757: 10.0.2.79:35475 (ingress) <> app-routable-demo/nginx-zone1-5558d47d6b-lpxdf:80 (ID:23472) to-overlay FORWARDED (TCP Flags: SYN)
+Aug 27 08:40:09.758: 10.0.2.79:35475 (ingress) -> app-routable-demo/nginx-zone1-5558d47d6b-lpxdf:80 (ID:23472) to-endpoint FORWARDED (TCP Flags: SYN)
+Aug 27 08:40:09.758: 10.0.2.79:35475 (ingress) <> app-routable-demo/nginx-zone1-5558d47d6b-lpxdf:80 (ID:23472) to-overlay FORWARDED (TCP Flags: ACK)
+Aug 27 08:40:09.758: 10.0.2.79:35475 (ingress) -> app-routable-demo/nginx-zone1-5558d47d6b-lpxdf:80 (ID:23472) to-endpoint FORWARDED (TCP Flags: ACK)
+Aug 27 08:40:09.758: 10.0.2.79:35475 (ingress) <> app-routable-demo/nginx-zone1-5558d47d6b-lpxdf:80 (ID:23472) to-overlay FORWARDED (TCP Flags: ACK, PSH)
+Aug 27 08:40:09.758: 10.0.2.79:35475 (ingress) -> app-routable-demo/nginx-zone1-5558d47d6b-lpxdf:80 (ID:23472) to-endpoint FORWARDED (TCP Flags: ACK, PSH)
+Aug 27 08:40:09.772: 10.0.2.79:35475 (ingress) <> app-routable-demo/nginx-zone1-5558d47d6b-lpxdf:80 (ID:23472) to-overlay FORWARDED (TCP Flags: ACK)
+```
