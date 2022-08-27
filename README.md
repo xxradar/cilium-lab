@@ -161,10 +161,29 @@ Aug 27 08:49:44.417: 10.0.2.79:39309 (ingress) -> app-routable-demo/nginx-zone1-
 ```
 ## DNS visibility
 ```
-kubectl annotate pod -n app-routable-demo --selector="app=echoserver-1"  io.cilium.proxy-visibility="<Egress/53/UDP/DNS>,<Ingress/80/TCP/HTTP>"
+kubectl annotate pod -n app-routable-demo --selector="app=siege"  io.cilium.proxy-visibility="<Egress/53/UDP/DNS>"
+```
+```
+hubble observe -n app-routable-demo --from-label app=siege --to-port 53 -f
+```
+```
+Aug 27 09:35:03.932: app-routable-demo/siege-deployment-5fc7c7d969-jncgv:41587 (ID:14878) -> kube-system/coredns-565d847f94-q5szk:53 (ID:35761) to-proxy FORWARDED (UDP)
+Aug 27 09:35:03.932: app-routable-demo/siege-deployment-5fc7c7d969-jncgv:41587 (ID:14878) -> kube-system/coredns-565d847f94-q5szk:53 (ID:35761) dns-request FORWARDED (DNS Query zone1.app-routable-demo.svc.cluster.local. A)
+Aug 27 09:35:03.980: app-routable-demo/siege-deployment-5fc7c7d969-prwsp:49924 (ID:14878) -> kube-system/coredns-565d847f94-26swq:53 (ID:35761) to-proxy FORWARDED (UDP)
+Aug 27 09:35:03.980: app-routable-demo/siege-deployment-5fc7c7d969-prwsp:49924 (ID:14878) -> kube-system/coredns-565d847f94-26swq:53 (ID:35761) dns-request FORWARDED (DNS Query zone1.app-routable-demo.svc.cluster.local. A)
+Aug 27 09:35:03.986: app-routable-demo/siege-deployment-5fc7c7d969-prwsp:57430 (ID:14878) -> kube-system/coredns-565d847f94-q5szk:53 (ID:35761) to-proxy FORWARDED (UDP)
+Aug 27 09:35:03.986: app-routable-demo/siege-deployment-5fc7c7d969-prwsp:57430 (ID:14878) -> kube-system/coredns-565d847f94-q5szk:53 (ID:35761) dns-request FORWARDED (DNS Query zone1.app-routable-demo.svc.cluster.local. A)
+Aug 27 09:35:03.988: app-routable-demo/siege-deployment-5fc7c7d969-jncgv:39713 (ID:14878) -> kube-system/coredns-565d847f94-26swq:53 (ID:35761) to-proxy FORWARDED (UDP)
+Aug 27 09:35:03.988: app-routable-demo/siege-deployment-5fc7c7d969-jncgv:39713 (ID:14878) -> kube-system/coredns-565d847f94-26swq:53 (ID:35761) dns-request FORWARDED (DNS Query zone1.app-routable-demo.svc.cluster.local. A)
+Aug 27 09:35:04.228: app-routable-demo/siege-deployment-5fc7c7d969-prwsp:51528 (ID:14878) -> kube-system/coredns-565d847f94-q5szk:53 (ID:35761) to-proxy FORWARDED (UDP)
+Aug 27 09:35:04.228: app-routable-demo/siege-deployment-5fc7c7d969-prwsp:51528 (ID:14878) -> kube-system/coredns-565d847f94-q5szk:53 (ID:35761) dns-request FORWARDED (DNS Query zone1.app-routable-demo.svc.cluster.local. A)
+Aug 27 09:35:04.283: app-routab
 ```
 
 ## L7 visibility
+```
+kubectl annotate pod -n app-routable-demo --selector="app=echoserver-1"  io.cilium.proxy-visibility="<Ingress/80/TCP/HTTP>"
+```
 ```
 hubble observe -n app-routable-demo --to-label app=echoserver-1 -f
 ```
