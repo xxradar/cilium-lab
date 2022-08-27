@@ -1,4 +1,4 @@
-# cilium-lab
+# Cilium testing ground and examples
 
 ## Lab setup
 Kubeadm K8S cluster v1.25<br> 
