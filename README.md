@@ -68,7 +68,7 @@ metadata:
   name: app1-ingress
   namespace: app-routable-demo
 spec:
-  ingressClassName: "cilium"
+  ingressClassName: cilium
   rules:
   - http:
       paths:
