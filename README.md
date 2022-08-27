@@ -32,6 +32,10 @@ kubectl create ns hacking
 ```
 kubectl run -it --rm -l debug=hacking-mode-n hacking --image xxradar/hackon debug
 ```
+```
+curl  zone1.app-routable-demo.svc.cluster.local/app1
+...
+```
 
 ## Applying K8S native network policies
 ```
