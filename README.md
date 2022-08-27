@@ -65,6 +65,7 @@ kubectl apply -f - <<EOF
 kind: Ingress
 metadata:
   name: app1-ingress
+  namespace: app-routable-demo
 spec:
   ingressClassName: "cilium"
   rules:
