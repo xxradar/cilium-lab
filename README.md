@@ -1,7 +1,9 @@
 # Cilium testing ground and examples
 
 ## Lab setup
-Kubeadm K8S cluster v1.25<br> 
+#### Install a K8S cluster
+Kubeadm K8S cluster v1.25.<br>
+See [install instructions](https://github.com/xxradar/k8s-calico-oss-install-containerd)
 #### Cilium v1.12.1
 See [script](./cilium_install.sh) or
 ```
