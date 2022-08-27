@@ -58,3 +58,27 @@ Aug 27 07:11:01.684: hacking/debug:37254 (ID:59652) <> app-routable-demo/nginx-z
 Aug 27 07:11:05.940: hacking/debug:37254 (ID:59652) <> app-routable-demo/nginx-zone1-5558d47d6b-lpxdf:80 (ID:23472) policy-verdict:none DENIED (TCP Flags: SYN)
 Aug 27 07:11:05.940: hacking/debug:37254 (ID:59652) <> app-routable-demo/nginx-zone1-5558d47d6b-lpxdf:80 (ID:23472) Policy denied DROPPED (TCP Flags: SYN)
 ```
+
+## Create an cilium ingress resource
+```
+kubectl apply -f - <<EOF
+kind: Ingress
+metadata:
+  name: app1-ingress
+spec:
+  ingressClassName: "cilium"
+  rules:
+  - http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: zone1
+            port:
+              number: 80
+EOF
+```
+```
+kubectl get ingress -n app-routable-demo
+```
