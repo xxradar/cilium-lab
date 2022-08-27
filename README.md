@@ -177,7 +177,6 @@ Aug 27 09:35:03.988: app-routable-demo/siege-deployment-5fc7c7d969-jncgv:39713 (
 Aug 27 09:35:03.988: app-routable-demo/siege-deployment-5fc7c7d969-jncgv:39713 (ID:14878) -> kube-system/coredns-565d847f94-26swq:53 (ID:35761) dns-request FORWARDED (DNS Query zone1.app-routable-demo.svc.cluster.local. A)
 Aug 27 09:35:04.228: app-routable-demo/siege-deployment-5fc7c7d969-prwsp:51528 (ID:14878) -> kube-system/coredns-565d847f94-q5szk:53 (ID:35761) to-proxy FORWARDED (UDP)
 Aug 27 09:35:04.228: app-routable-demo/siege-deployment-5fc7c7d969-prwsp:51528 (ID:14878) -> kube-system/coredns-565d847f94-q5szk:53 (ID:35761) dns-request FORWARDED (DNS Query zone1.app-routable-demo.svc.cluster.local. A)
-Aug 27 09:35:04.283: app-routab
 ```
 
 ## L7 visibility
