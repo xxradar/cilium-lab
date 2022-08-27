@@ -10,7 +10,7 @@ cilium install \
 --kube-proxy-replacement=strict \
 --version 1.12.1
 ```
-#### app-routable-demo
+#### Install demo app-routable-demo
 See [app-routable-demo](https://github.com/xxradar/app_routable_demo) for more info<br> 
 ```
 git clone https://github.com/xxradar/app_routable_demo.git
