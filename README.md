@@ -150,5 +150,5 @@ spec:
     - fromEntities:
       - ingress
  EOF
- ```
 ```
+
