@@ -13,7 +13,7 @@ cilium install \
 --helm-set ingressController.enabled=true \
 --helm-set securityContext.privileged=true \
 --kube-proxy-replacement=strict \
---version 1.12.1
+--version 1.12.4
 
 #cilium connectivity test
 
