@@ -31,7 +31,8 @@ sudo tar xzvfC hubble-linux-${HUBBLE_ARCH}.tar.gz /usr/local/bin
 rm hubble-linux-${HUBBLE_ARCH}.tar.gz{,.sha256sum}
 
 
-sleep 15 
-cilium hubble port-forward &
-hubble status
-kubectl port-forward -n kube-system svc/hubble-ui --address 0.0.0.0 --address :: 12000:80 > /dev/null &
+#  sleep 15 
+#  cilium hubble port-forward &
+#  sleep 15 
+#  hubble status
+#  kubectl port-forward -n kube-system svc/hubble-ui --address 0.0.0.0 --address :: 12000:80 > /dev/null &
